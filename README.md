@@ -78,6 +78,14 @@ Note that with this annotation, you no longer even have to make your method `pri
 
 
 
+
+## How does Access Warden "suspend" method calls
+
+It does so by simply injecting special bytecode in your already compiled JAR files that throws a `java.lang.SecurityException` if the method call is not permitted. The exception will carry a message describing the *exact reason* why the call was suspended (e.g. whether the caller source was explicitly blacklisted, or the caller used reflection which was disabled for this method via configuration).
+
+
+
+
 # Getting Started | Basic Tutorial
 
 For detailed installation instructions and "how to use" see the **[Getting Started](https://github.com/MeGysssTaa/access-warden/wiki/Getting-started)** page of the Wiki. For specific details you can also see documentation/javadocs. There's also a lot of other useful information available **[on the Access Warden Wiki](https://github.com/MeGysssTaa/access-warden/wiki)**.
@@ -90,6 +98,20 @@ For detailed installation instructions and "how to use" see the **[Getting Start
 All **Access Warden**'s runtime access context checks, of course, have some CPU overhead. Moreover, your final application JAR (after transformations) will be slightly increasing in size for each piece of code you annotate with `@RestrictedAccess` or similar. That is, it is only adviced to use **Access Warden**'s power on the most vulnerable parts of your code — where an *attacker* bypassing regular Java access modifiers is unacceptable or extremely unwanted.
 
 Internally, though, **Access Warden** attempts to generate as little amounts of code as possible. See the **[Code Generation](https://github.com/MeGysssTaa/access-warden/wiki/Code-Generation)** page of the Wiki for details.
+
+
+
+
+# Reliability
+
+I can't state that the level of "protection" **Access Warden** offers is 100% bulletproof. But it is indeed a good starting point against *"script-kiddies"*, and it definitely requires some special knowledge to bypass its checks, if configured and used right.
+
+
+
+
+# Contributing
+
+If you'd like to report a bug, ask a question, suggest a new feature, or even provide some code improvements on your own, don't hesitate to **[open an issue](https://github.com/MeGysssTaa/access-warden/issues)** or **[make a pull request](https://github.com/MeGysssTaa/access-warden/pulls)**!
 
 
 
