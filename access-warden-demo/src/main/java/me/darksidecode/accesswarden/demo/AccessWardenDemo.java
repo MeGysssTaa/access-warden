@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
 public class AccessWardenDemo {
 
     public static void main(String[] args) throws Exception {
-        System.out.println("* BEGIN DEMO * \n \n ");
+        System.out.println(" \n * BEGIN DEMO * \n \n ");
 
         System.out.println("--- Trying normal call (should work) ---");
         first(15);
@@ -80,7 +80,7 @@ public class AccessWardenDemo {
             ex.printStackTrace();
         }
 
-        System.out.println(" \n \n * END DEMO *");
+        System.out.println(" \n \n * END DEMO * \n ");
     }
 
     private static void first(int x) {
