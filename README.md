@@ -53,6 +53,35 @@ One way of getting around this is to use a `SecurityManager`, either by defining
 * **[Demo](https://github.com/MeGysssTaa/access-warden/wiki/The-Demo-module)** — A basic runnable example that demonstrates the way **Access Warden** can be used, uses Gradle. 
 
 
+With **Access Warden**, our example `Player#jump()` method can be secured somewhat as follows:
+
+```java
+@RestrictedCall (
+        prohibitReflectionTraces    = true,
+        prohibitNativeTraces        = true,
+        prohibitArbitraryInvocation = true,
+        permittedSources            = {
+                "my.cool.game.Player#update*",
+                "my.cool.game.Player#keyPressed"
+        }
+)
+private void jump() {
+    this.posY += 1.0; // (some hyper-realistic physics simulation here)
+}
+```
+
+After building this code, the annotation above the `jump` method will be removed from the code (you can change this behavior to keep the annotation, if you need to, though), and instead some special code will be generated and inserted in the beginning of the method instruction set. This special code will only *allow* method `keyPressed` and all methods whose name starts with `update` (e.g. `updateInputs`, `updatePhysics`, etc.) from inside class `my.cool.game.Player` to pass. Additionally, it will *forbid* the `jump` method to be invoked with reflection and/or native methods.
+
+Any calls that do not match the described criteria will cause a `SecurityException` to be thrown. This means that you now *truly* define who can, and who cannot access your `Player#jump` method.
+
+
+
+# Getting Started | Basic Tutorial
+
+For detailed installation instructions and "how to use" see the **[Getting Started](https://github.com/MeGysssTaa/access-warden/wiki/Getting-started)** page of the Wiki. For specific details you can also see documentation/javadocs.
+
+
+
 
 # License
 
