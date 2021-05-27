@@ -1,7 +1,10 @@
 # Eclipse
 .classpath
+*/.classpath
 .project
+*/.project
 .settings/
+*/.settings/
 
 # IntelliJ IDEA
 out/
@@ -15,14 +18,21 @@ out/
 
 # Mac
 .DS_Store
+*/.DS_Store
 
 # Maven
 log/
+*/log/
 target/
+*/target/
 
 # Gradle
 .gradle
 /build/
+*/build/
 gradle-app.setting
+*/gradle-app.setting
 !gradle-wrapper.jar
+*/!gradle-wrapper.jar
 .gradletasknamecache
+*/.gradletasknamecache
