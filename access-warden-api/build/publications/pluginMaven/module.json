@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "me.darksidecode.accesswarden.api",
+    "module": "access-warden-api",
+    "version": "1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.8",
+      "buildId": "laystwx57nebdckwoze74zdy7m"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "access-warden-api-1.jar",
+          "url": "access-warden-api-1.jar",
+          "size": 12756,
+          "sha512": "207152c6ffaa6b2099fcda87f3d4533a9eb92dad89d19fbd2b18e825b109a0febd7f5de7227e4c8071a9b00b3bf465a48cd4f0408eafcc6d82fbba0147e5c938",
+          "sha256": "c98d5ec87efd7e6d733a71b4ed815c2fb3fae02f4af0bc42170338a2baaf88a6",
+          "sha1": "35935344c828c6957629b0ab1a908cabf95eb357",
+          "md5": "835bad73e00a5c6ee4ba6747147f2100"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "access-warden-api-1.jar",
+          "url": "access-warden-api-1.jar",
+          "size": 12756,
+          "sha512": "207152c6ffaa6b2099fcda87f3d4533a9eb92dad89d19fbd2b18e825b109a0febd7f5de7227e4c8071a9b00b3bf465a48cd4f0408eafcc6d82fbba0147e5c938",
+          "sha256": "c98d5ec87efd7e6d733a71b4ed815c2fb3fae02f4af0bc42170338a2baaf88a6",
+          "sha1": "35935344c828c6957629b0ab1a908cabf95eb357",
+          "md5": "835bad73e00a5c6ee4ba6747147f2100"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "me.darksidecode.accesswarden.core",
+    "module": "access-warden-core",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.8",
+      "buildId": "4zjvy2drrfgtxptg4locsds2zy"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "access-warden-core-1.0.0.jar",
+          "url": "access-warden-core-1.0.0.jar",
+          "size": 2685285,
+          "sha512": "9483fc135b8b8e2495e00d7d7f79627f5b0506e160a0cbefc045981325a25f36f4ccc2e3e816af8a6277827a83c45df9ed4a57027fed23ff646a85b28889cfe3",
+          "sha256": "84ca8c91d3d0e6f0b1575fa2bc721e998d5eca279f375bbdf6ccf78c83c022d4",
+          "sha1": "aea872b365f08fc2e5786813bee3b9da6e30712b",
+          "md5": "6a6ad44468a308bd956b1a14c250237e"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "me.darksidecode.accesswarden.api",
+          "module": "access-warden-api",
+          "version": {
+            "requires": "1"
+          }
+        },
+        {
+          "group": "commons-io",
+          "module": "commons-io",
+          "version": {
+            "requires": "2.8.0"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-api",
+          "version": {
+            "requires": "2.14.1"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-core",
+          "version": {
+            "requires": "2.14.1"
+          }
+        },
+        {
+          "group": "org.apache.logging.log4j",
+          "module": "log4j-slf4j-impl",
+          "version": {
+            "requires": "2.14.1"
+          }
+        },
+        {
+          "group": "org.ow2.asm",
+          "module": "asm",
+          "version": {
+            "requires": "9.1"
+          }
+        },
+        {
+          "group": "org.ow2.asm",
+          "module": "asm-util",
+          "version": {
+            "requires": "9.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "access-warden-core-1.0.0.jar",
+          "url": "access-warden-core-1.0.0.jar",
+          "size": 2685285,
+          "sha512": "9483fc135b8b8e2495e00d7d7f79627f5b0506e160a0cbefc045981325a25f36f4ccc2e3e816af8a6277827a83c45df9ed4a57027fed23ff646a85b28889cfe3",
+          "sha256": "84ca8c91d3d0e6f0b1575fa2bc721e998d5eca279f375bbdf6ccf78c83c022d4",
+          "sha1": "aea872b365f08fc2e5786813bee3b9da6e30712b",
+          "md5": "6a6ad44468a308bd956b1a14c250237e"
+        }
+      ]
+    }
+  ]
+}

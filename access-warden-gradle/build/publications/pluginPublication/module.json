@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "me.darksidecode.accesswarden.gradle",
+    "module": "access-warden-gradle",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.8",
+      "buildId": "4zjvy2drrfgtxptg4locsds2zy"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "access-warden-gradle-1.0.0.jar",
+          "url": "access-warden-gradle-1.0.0.jar",
+          "size": 3558,
+          "sha512": "f5d8d697ac2462c826770a6b3c5b53da8e53a9865dcb5537637d049c168bdc0e32ef61a5b365d379b219d947c33c9690a154690ffb580677ad168bc72e7a1611",
+          "sha256": "69413c0d7811d6e0595dc97593902b1bf8ec980d44e57ace2b31ca907aac916a",
+          "sha1": "4810616e8cd4aa094502393ae259f8f3f5691142",
+          "md5": "8dcdee05fcb0baba73dc699009144c90"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "me.darksidecode.accesswarden.core",
+          "module": "access-warden-core",
+          "version": {
+            "requires": "1.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "access-warden-gradle-1.0.0.jar",
+          "url": "access-warden-gradle-1.0.0.jar",
+          "size": 3558,
+          "sha512": "f5d8d697ac2462c826770a6b3c5b53da8e53a9865dcb5537637d049c168bdc0e32ef61a5b365d379b219d947c33c9690a154690ffb580677ad168bc72e7a1611",
+          "sha256": "69413c0d7811d6e0595dc97593902b1bf8ec980d44e57ace2b31ca907aac916a",
+          "sha1": "4810616e8cd4aa094502393ae259f8f3f5691142",
+          "md5": "8dcdee05fcb0baba73dc699009144c90"
+        }
+      ]
+    }
+  ]
+}

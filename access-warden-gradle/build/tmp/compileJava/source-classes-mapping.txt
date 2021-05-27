@@ -1,0 +1,2 @@
+me/darksidecode/accesswarden/gradle/AccessWardenGradle.java
+ me.darksidecode.accesswarden.gradle.AccessWardenGradle
