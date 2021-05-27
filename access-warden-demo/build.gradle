@@ -16,7 +16,10 @@
 
 buildscript {
     repositories {
-        mavenLocal()
+        maven {
+            name 'Public Reflex Repository'
+            url 'https://archiva.reflex.rip/repository/public/'
+        }
     }
 
     dependencies {
@@ -54,9 +57,13 @@ jar.finalizedBy accessWardenGradle
 
 repositories {
     mavenCentral()
-    mavenLocal()
+
+    maven {
+        name 'Public Reflex Repository'
+        url 'https://archiva.reflex.rip/repository/public/'
+    }
 }
 
 dependencies {
-    implementation project(':access-warden-api')
+    implementation group: 'me.darksidecode.accesswarden.api', name: 'access-warden-api', version: '1'
 }

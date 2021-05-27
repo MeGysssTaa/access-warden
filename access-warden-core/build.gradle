@@ -24,13 +24,60 @@ group 'me.darksidecode.accesswarden.core'
 version '1.0.0'
 def buildTimestamp = new Date().format('yyyy/MM/dd_HH-mm-ss')
 
+java {
+    withSourcesJar()
+}
+
 publishing {
+    repositories {
+        maven {
+            url 'https://archiva.reflex.rip/repository/public/'
+
+            credentials {
+                // ~/.gradle/gradle.properties
+                username reflexPrivateUsername
+                password reflexPrivatePassword
+            }
+
+            authentication {
+                basic BasicAuthentication
+            }
+        }
+    }
+
     publications {
-        pluginPublication(MavenPublication) {
+        maven(MavenPublication) {
+            artifactId = 'access-warden-core'
             from components.java
-            groupId project.group
-            artifactId 'access-warden-core'
-            version project.version
+
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+
+            pom {
+                name = 'Access Warden Core'
+                description = 'A powerful toolkit for enforcing access restrictions in Java'
+                url = 'https://github.com/MeGysssTaa/access-warden'
+
+                licenses {
+                    license {
+                        name = 'Apache License 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'DarksideCode'
+                        name = 'German Vekhorev'
+                    }
+                }
+            }
         }
     }
 }
@@ -71,7 +118,11 @@ def log4jVersion = '2.14.1'
 
 repositories {
     mavenCentral()
-    mavenLocal()
+
+    maven {
+        name 'Public Reflex Repository'
+        url 'https://archiva.reflex.rip/repository/public/'
+    }
 }
 
 dependencies {

@@ -18,7 +18,7 @@ private void jump() {
 }
 ```
 
-Assuming this method is only called from inside of our `Player` class, we can define it `private`. This means that we are protected from all other classes/sources accessing this method and causing the player to jump infinitely... or, *are we*?
+Assuming this method is only called from inside our `Player` class, we can define it `private`. This means that we are protected from all other classes/sources accessing this method and causing the player to jump infinitely... or, *are we*?
 
 
 ### Standard Java modifiers are not so reliable
@@ -86,7 +86,7 @@ It does so by simply injecting special bytecode in your already compiled JAR fil
 
 
 
-# Getting Started | Basic Tutorial
+# Getting Started | Basic Tutorial | Installation Instructions | Usage
 
 For detailed installation instructions and "how to use" see the **[Getting Started](https://github.com/MeGysssTaa/access-warden/wiki/Getting-started)** page of the Wiki. For specific details you can also see documentation/javadocs. There's also a lot of other useful information available **[on the Access Warden Wiki](https://github.com/MeGysssTaa/access-warden/wiki)**.
 
@@ -113,6 +113,34 @@ I can't state that the level of "protection" **Access Warden** offers is 100% bu
 
 If you'd like to report a bug, ask a question, suggest a new feature, or even provide some code improvements on your own, don't hesitate to **[open an issue](https://github.com/MeGysssTaa/access-warden/issues)** or **[make a pull request](https://github.com/MeGysssTaa/access-warden/pulls)**!
 
+
+
+
+
+# Building (Gradle)
+
+*Assuming you already have Git, Maven, and Gradle installed and set up.*
+
+**First**, clone the project from git and `cd` into it:
+
+```shell
+git clone https://github.com/MeGysssTaa/access-warden
+cd access-warden
+```
+
+**Second**, use Gradle Wrapper to build the executables (JAR files) from source:
+
+```shell
+# To build all modules at once:
+./gradlew build
+
+# To build one particular module (for example, access-warden-api):
+./gradlew access-warden-api:build
+```
+
+Please note that in order to build particular modules you'll first have to build the entire project. This is because modules depend on each other *(API <- Core <- Gradle <- Demo)*.
+
+To learn more about **Access Warden** modules, see [wiki](https://github.com/MeGysssTaa/access-warden/wiki).
 
 
 

@@ -22,13 +22,69 @@ plugins {
 group 'me.darksidecode.accesswarden.api'
 version '1'
 
+java {
+    withSourcesJar()
+}
+
 publishing {
-    publications {
-        pluginPublication(MavenPublication) {
-            from components.java
-            groupId project.group
-            artifactId 'access-warden-api'
-            version project.version
+    repositories {
+        maven {
+            url 'https://archiva.reflex.rip/repository/public/'
+
+            credentials {
+                // ~/.gradle/gradle.properties
+                username reflexPrivateUsername
+                password reflexPrivatePassword
+            }
+
+            authentication {
+                basic BasicAuthentication
+            }
         }
+    }
+
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'access-warden-api'
+            from components.java
+
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+
+            pom {
+                name = 'Access Warden API'
+                description = 'A powerful toolkit for enforcing access restrictions in Java'
+                url = 'https://github.com/MeGysssTaa/access-warden'
+
+                licenses {
+                    license {
+                        name = 'Apache License 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'DarksideCode'
+                        name = 'German Vekhorev'
+                    }
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name 'Public Reflex Repository'
+        url 'https://archiva.reflex.rip/repository/public/'
     }
 }
