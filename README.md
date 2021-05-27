@@ -80,7 +80,7 @@ Note that with this annotation, you no longer even have to make your method `pri
 
 # Getting Started | Basic Tutorial
 
-For detailed installation instructions and "how to use" see the **[Getting Started](https://github.com/MeGysssTaa/access-warden/wiki/Getting-started)** page of the Wiki. For specific details you can also see documentation/javadocs.
+For detailed installation instructions and "how to use" see the **[Getting Started](https://github.com/MeGysssTaa/access-warden/wiki/Getting-started)** page of the Wiki. For specific details you can also see documentation/javadocs. There's also a lot of other useful information available **[on the Access Warden Wiki](https://github.com/MeGysssTaa/access-warden/wiki)**.
 
 
 
