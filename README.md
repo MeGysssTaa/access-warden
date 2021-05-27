@@ -72,13 +72,24 @@ private void jump() {
 
 After building this code, the annotation above the `jump` method will be removed from the code (you can change this behavior to keep the annotation, if you need to, though), and instead some special code will be generated and inserted in the beginning of the method instruction set. This special code will only *allow* method `keyPressed` and all methods whose name starts with `update` (e.g. `updateInputs`, `updatePhysics`, etc.) from inside class `my.cool.game.Player` to pass. Additionally, it will *forbid* the `jump` method to be invoked with reflection and/or native methods.
 
-Any calls that do not match the described criteria will cause a `SecurityException` to be thrown. This means that you now *truly* define who can, and who cannot access your `Player#jump` method.
+Any calls that do not match the described criteria will cause a `SecurityException` to be thrown. This means that you now *truly* define who can, and who cannot access your `Player#jump` method. Moreoever, it's really easy to do and doesn't require you to have any special knowledge (other than details specific to your application).
+
+Note that with this annotation, you no longer even have to make your method `private` — `public` will act pretty much the same. However, this is **not recommended**, since it violates the basics of OOP and makes your code difficult to understand by causing an illusion of a `public` method that is actually restricted.
 
 
 
 # Getting Started | Basic Tutorial
 
 For detailed installation instructions and "how to use" see the **[Getting Started](https://github.com/MeGysssTaa/access-warden/wiki/Getting-started)** page of the Wiki. For specific details you can also see documentation/javadocs.
+
+
+
+
+# Performance
+
+All **Access Warden**'s runtime access context checks, of course, have some CPU overhead. Moreover, your final application JAR (after transformations) will be slightly increasing in size for each piece of code you annotate with `@RestrictedAccess` or similar. That is, it is only adviced to use **Access Warden**'s power on the most vulnerable parts of your code — where an *attacker* bypassing regular Java access modifiers is unacceptable or extremely unwanted.
+
+Internally, though, **Access Warden** attempts to generate as little amounts of code as possible. See the **[Code Generation](https://github.com/MeGysssTaa/access-warden/wiki/Code-Generation)** page of the Wiki for details.
 
 
 
