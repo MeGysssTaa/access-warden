@@ -41,7 +41,7 @@ Additionally, an *attacker* could potentially use some native (C/C++) tricks and
 
 ### Setting up a global SecurityManager
 
-One way of getting around this is to use a `SecurityManager`, either by defining so before launching your application (which also has to be enforced somehow) with some pre-defined security policies files, or programmatically, by directly inheriting from `java.lang.SecurityManager` and writing code that will filter all the forbidden calls on your own (which may be incompatible with user's current environment, say, due to another `SecurityManager` being already set). Both options involve comparably much work and have severe drawbacks.
+One way of getting around this is to use a `SecurityManager`, either by defining one before launching your application (which also has to be enforced somehow) with some pre-defined security policies files, or programmatically, by directly inheriting from `java.lang.SecurityManager` and writing code that will filter all the forbidden calls on your own (which may be incompatible with user's current environment, say, due to another `SecurityManager` being already set). Both options involve comparably much work and have severe drawbacks.
 
 
 ## The solution
