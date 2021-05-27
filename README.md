@@ -46,7 +46,7 @@ One way of getting around this is to use a `SecurityManager`, either by defining
 
 ## The solution
 
-**Access Warden** provides a toolkit that helps you deal with this kind of issue *easily, quickly, and comparably reliably*. Here's some brief overview of all *Access Warden** modules:
+**Access Warden** provides a toolkit that helps you deal with this kind of issue *easily, quickly, and comparably reliably*. Here's some brief overview of all **Access Warden** modules:
 * **[API](https://github.com/MeGysssTaa/access-warden/wiki/The-API-module)** — Provides low-level access to stacktrace/environment inspection and allows you write some *really specific* checks suitable for your particular application case. However, in most cases you'll be only including this module for *annotations*, on which the other modules are based.
 * **[Core](https://github.com/MeGysssTaa/access-warden/wiki/The-Core-module)** — Provides very high-level, control-less access to *JVM bytecode generation* in existing JAR files. Mostly used either as a standalone application or by other modules (such as the Gradle module) for transformation of existing (built) application JAR files. However, you can also use it to run JAR transformations programmatically, at a high level (with barely writing any code).
 * **[Gradle](https://github.com/MeGysssTaa/access-warden/wiki/The-Gradle-module)** — Removes the need in running the Core module as a standalone application after each application build. Instead, all the necessary transformations will be automatically applied after you build your application with Gradle.
