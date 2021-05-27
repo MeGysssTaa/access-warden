@@ -86,7 +86,7 @@ It does so by simply injecting special bytecode in your already compiled JAR fil
 
 
 
-# Getting Started | Basic Tutorial | Installation Instructions | Usage
+# Getting Started
 
 For detailed installation instructions and "how to use" see the **[Getting Started](https://github.com/MeGysssTaa/access-warden/wiki/Getting-started)** page of the Wiki. For specific details you can also see documentation/javadocs. There's also a lot of other useful information available **[on the Access Warden Wiki](https://github.com/MeGysssTaa/access-warden/wiki)**.
 
