@@ -16,11 +16,11 @@
 
 package me.darksidecode.accesswarden.api;
 
-public final class Utils {
+final class Utils {
 
     private Utils() {}
 
-    public static String globToRegex(String glob) {
+    private static String globToRegex(String glob) {
         if (glob == null)
             throw new NullPointerException("glob cannot be null");
 
@@ -57,7 +57,7 @@ public final class Utils {
         return regex.append('$').toString();
     }
 
-    public static boolean callFrameMatches(StackTraceElement frame, String globFilter) {
+    static boolean callFrameMatches(StackTraceElement frame, String globFilter) {
         if (frame == null)
             throw new NullPointerException("frame cannot be null");
 

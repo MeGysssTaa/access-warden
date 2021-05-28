@@ -16,6 +16,9 @@
 
 package me.darksidecode.accesswarden.api;
 
+/**
+ * Thrown to indicate <i>non-analyzeable</i> call stacks or <i>invalid/contradictory</i> access configurations.
+ */
 public class UnexpectedSetupException extends Exception {
 
     private static final long serialVersionUID = -2006436518752801820L;

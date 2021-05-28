@@ -23,31 +23,96 @@ import java.lang.annotation.Target;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Indicates that the method this annotation is put on should be protected with Access Warden.
+ * This annotation specifies the set of rules that all callers to the method must follow (or
+ * all the criteria they must match), and is transformed into checker bytecode by the
+ * <a href="https://github.com/MeGysssTaa/access-warden/wiki/The-Core-module">Access Warden Core module</a>.
+ * <p>
+ * For details on configuring the annotation and examples see
+ * <a href="https://github.com/MeGysssTaa/access-warden/wiki/The-API-module">the RestrictedCall page of the wiki</a>.
+ */
 @Target (ElementType.METHOD)
 @Retention (RetentionPolicy.RUNTIME)
 public @interface RestrictedCall {
 
+    /**
+     * Whether the annotation put on the method should be kept by Access Warden transformer
+     * at runtime or not.
+     * <p>
+     * Most of the times, you'll want to be removing the annotation after transformation, except for cases
+     * when you want to explicitly show to the users of your application API that this method has a strictly
+     * defined set of rules that must be followed for it to be invoked.
+     */
     boolean preserveThisAnnotation() default false;
     String k_preserveThisAnnotation = "preserveThisAnnotation";
 
+    /**
+     * The exact way the call stack (list of Strings of format "fully.qualified.ClassName#methodName") must
+     * look when invoking this method, in reverse-chronological order (that is, most recent call first). This
+     * list must not include the annotated (protected) method itself.
+     * <p>
+     * If empty, this parameter ("paranoid mode", basically) will not be used. Otherwise, if set,
+     * <i>all</i> other annotation parameters will have no effect.
+     * <p>
+     * Elements of this list support basic glob wildcards ("?" and "*").
+     */
     String[] exactExpectedCallStack() default {};
     String k_exactExpectedCallStack = "exactExpectedCallStack";
 
+    /**
+     * Whether to forbid <i>any</i> call traces of the Java Reflections API to be present in the call stack.
+     */
     boolean prohibitReflectionTraces() default false;
     String k_prohibitReflectionTraces = "prohibitReflectionTraces";
 
+    /**
+     * Whether to forbid <i>any</i> call traces of native (C/C++) code to be present in the call stack.
+     */
     boolean prohibitNativeTraces() default false;
     String k_prohibitNativeTraces = "prohibitNativeTraces";
 
+    /**
+     * Whether the <i>most recent call frame</i> of the call stack must be strictly
+     * limited to a predefined set of sources.
+     * <p>
+     * Only has effect if the list of permittedSources if not empty.
+     *
+     * @see #permittedSources()
+     */
     boolean prohibitArbitraryInvocation() default false;
     String k_prohibitArbitraryInvocation = "prohibitArbitraryInvocation";
 
+    /**
+     * Defines the list of <i>only</i> allowed direct callers of this method.
+     * <p>
+     * Elements of this list support basic glob wildcards ("?" and "*").
+     *
+     * @see #prohibitArbitraryInvocation()
+     */
     String[] permittedSources() default {};
     String k_permittedSources = "permittedSources";
 
+    /**
+     * Defines the list of explicitly <i>banned</i> direct callers of this method, that is,
+     * the list of sources that are <i>forbidden</i> from being the <i>most recent call frame</i> in the call stack.
+     * <p>
+     * Elements of this list support basic glob wildcards ("?" and "*").
+     */
     String[] prohibitedSources() default {};
     String k_prohibitedSources = "prohibitedSources";
 
+    /**
+     * Wraps up the parameters of {@link RestrictedCall} in a convenient
+     * method with extra configuration validation.
+     * <p>
+     * Usually, you will not be creating Configuration objects yourself - the Access Warden Core module
+     * will do that for you based on the annotations you provided in your application source code.
+     * <p>
+     * Methods of the class may throw a {@link UnexpectedSetupException} if the configuration is generally
+     * invalid, if some of its particular options are invalid, or if some of the configuration options are
+     * <i>contradictory</i> to each other.
+     */
     final class Configuration {
         private static final int MAX_LISTS_SIZE = 1000;
 
